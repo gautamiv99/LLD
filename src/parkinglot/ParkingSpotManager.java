@@ -15,17 +15,13 @@ public abstract class ParkingSpotManager {
 
 	abstract ParkingSpot findParkingSpot();
 
-	void parkVehicle(Vehicle vehicle) {
+	Ticket parkVehicle() {
 		ParkingSpot spot = findParkingSpot();
-		spot.parkVehicle(vehicle);
+		spot.parkVehicle();
+		return new Ticket(spot);
 	}
 
-	void removeVehicle(Vehicle vehicle) {
-		for (ParkingSpot spot : parkingSpots) {
-			if (spot.getVehicle() != null && spot.getVehicle().equals(vehicle)) {
-				spot.removeVehicle(vehicle);
-				break;
-			}
-		}
+	void removeVehicle(Ticket ticket) {
+		ticket.getParkingSpot().removeVehicle();
 	}
 }

@@ -4,9 +4,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TwoWheelerParkingSpotManager extends ParkingSpotManager {
-	
-	TwoWheelerParkingSpotManager(List<ParkingSpot> spots){
+	ParkingStrategy strategy;
+
+	TwoWheelerParkingSpotManager(List<ParkingSpot> spots, ParkingStrategy strategy){
 		super(spots);
+		this.strategy = strategy;
 	}
 	
 	@Override
@@ -16,7 +18,8 @@ public class TwoWheelerParkingSpotManager extends ParkingSpotManager {
 	
 	@Override
 	ParkingSpot findParkingSpot() {
-		//implementation
+		List<ParkingSpot> availableParkingSpots = findAvailableParkingSpots();
+		strategy.findParkingSpot(availableParkingSpots);
 		return null;
 	}
 

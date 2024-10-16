@@ -9,17 +9,9 @@ public class EntranceGate {
 		this.parkingSpotManagerFactory = parkingSpotManagerFactory;
 	}
 	
-	ParkingSpot findParkingSpot(List<ParkingSpot> spots, Vehicle vehicle){
-		ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(spots, vehicle);
-		return parkingSpotManager.findParkingSpot();
-	}
-	
-	void updateParkingSpot(ParkingSpot spot){
-		spot.setEmpty(false);
-	}
-	
-	Ticket generateTicket(Vehicle vehicle, ParkingSpot parkingSpot) {
-		//implementaion to generate ticket
-		return null;
+	Ticket generateTicket(VehicleType vehicleType){
+		ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(vehicleType);
+		Ticket ticket = parkingSpotManager.parkVehicle();
+		return ticket;
 	}
 }

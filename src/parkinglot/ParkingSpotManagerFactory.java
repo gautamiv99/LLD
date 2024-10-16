@@ -2,13 +2,21 @@ package parkinglot;
 import java.util.*;
 
 public class ParkingSpotManagerFactory {
-	ParkingSpotManager getParkingSpotManager(List<ParkingSpot> spots,Vehicle vehicle) {
-		if(vehicle.getVehicleType() == VehicleType.TWO_WHEELER) {
-			return new TwoWheelerParkingSpotManager(spots);
-		} else if(vehicle.getVehicleType() == VehicleType.FOUR_WHEELER) {
-			return new FourWheelerParkingSpotManager(spots);
-		} else {
-			return null; // error handling
+	List<ParkingSpot> twoWheelerParkingSpots;
+	List<ParkingSpot> fourWheelerParkingSpots;
+	ParkingStrategy strategy;
+
+	ParkingSpotManagerFactory(List<ParkingSpot> twoWheelerParkingSpots, List<ParkingSpot> fourWheelerParkingSpots, ParkingStrategy strategy){
+		this.twoWheelerParkingSpots = twoWheelerParkingSpots;
+		this.fourWheelerParkingSpots = fourWheelerParkingSpots;
+		this.strategy = strategy;
+	}
+
+	ParkingSpotManager getParkingSpotManager(VehicleType vehicleType) {
+		switch(vehicleType){
+			case TWO_WHEELER: return new TwoWheelerParkingSpotManager(twoWheelerParkingSpots, strategy);
+			case FOUR_WHEELER: return new FourWheelerParkingSpotManager(fourWheelerParkingSpots, strategy);
+			default: return null;
 		}
 	}
 }

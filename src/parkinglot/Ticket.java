@@ -1,28 +1,25 @@
 package parkinglot;
 
 public class Ticket {
-	private int ticketNo;
+	private int ticketId;
 	
 	private long entryTime;
 	
 	private ParkingSpot parkingSpot;
-	
-	private Vehicle vehicle;
 
-	public Ticket(int ticketNo, long entryTime, ParkingSpot parkingSpot, Vehicle vehicle) {
+	public Ticket(ParkingSpot parkingSpot) {
 		super();
-		this.ticketNo = ticketNo;
-		this.entryTime = entryTime;
+		this.ticketId = Constants.counter++;
+		this.entryTime = System.currentTimeMillis();
 		this.parkingSpot = parkingSpot;
-		this.vehicle = vehicle;
 	}
 
-	public int getTicketNo() {
-		return ticketNo;
+	public long getTicketId(){
+		return ticketId;
 	}
 
-	public void setTicketNo(int ticketNo) {
-		this.ticketNo = ticketNo;
+	public void setTicketId(){
+		this.ticketId = Constants.counter++;
 	}
 
 	public long getEntryTime() {
@@ -39,14 +36,6 @@ public class Ticket {
 
 	public void setParkingSpot(ParkingSpot parkingSpot) {
 		this.parkingSpot = parkingSpot;
-	}
-
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
 	}
 	
 }

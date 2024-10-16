@@ -1,7 +1,5 @@
 package parkinglot;
 
-import java.util.ArrayList;
-
 public class ExitGate {
 	ParkingSpotManagerFactory parkingSpotManagerFactory;
 	
@@ -10,8 +8,7 @@ public class ExitGate {
 	}
 	
 	void removeVehicle(Ticket ticket) {
-		Vehicle vehicle = ticket.getVehicle();
-		ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(new ArrayList<>(), vehicle);
-		parkingSpotManager.removeVehicle(vehicle);
+		ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(ticket.getParkingSpot().getVehicleType());
+		parkingSpotManager.removeVehicle(ticket);
 	}
 }

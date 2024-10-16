@@ -1,4 +1,7 @@
-package parkinglot;
+package parkinglot.parkingmanager;
+
+import parkinglot.model.ParkingSpot;
+import parkinglot.parkingstrategy.ParkingStrategy;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,13 +1,16 @@
-package parkinglot;
+package parkinglot.model;
+
+import parkinglot.parkingmanager.ParkingSpotManager;
+import parkinglot.parkingmanager.ParkingSpotManagerFactory;
 
 public class ExitGate {
 	ParkingSpotManagerFactory parkingSpotManagerFactory;
 	
-	ExitGate(ParkingSpotManagerFactory parkingSpotManagerFactory){
+	public ExitGate(ParkingSpotManagerFactory parkingSpotManagerFactory){
 		this.parkingSpotManagerFactory = parkingSpotManagerFactory;
 	}
 	
-	void removeVehicle(Ticket ticket) {
+	public void removeVehicle(Ticket ticket) {
 		ParkingSpotManager parkingSpotManager = parkingSpotManagerFactory.getParkingSpotManager(ticket.getParkingSpot().getVehicleType());
 		parkingSpotManager.removeVehicle(ticket);
 	}

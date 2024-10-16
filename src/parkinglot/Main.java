@@ -1,4 +1,11 @@
 package parkinglot;
+import parkinglot.model.EntranceGate;
+import parkinglot.model.ExitGate;
+import parkinglot.model.ParkingSpot;
+import parkinglot.model.Ticket;
+import parkinglot.parkingmanager.ParkingSpotManagerFactory;
+import parkinglot.parkingstrategy.NearElevatorSrategy;
+
 import java.util.*;
 import java.util.stream.Collectors;
 

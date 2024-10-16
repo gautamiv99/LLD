@@ -1,10 +1,12 @@
-package parkinglot;
+package parkinglot.parkingstrategy;
+
+import parkinglot.model.ParkingSpot;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class NearElevatorSrategy implements ParkingStrategy{
+public class NearElevatorSrategy implements ParkingStrategy {
     @Override
     public ParkingSpot findParkingSpot(List<ParkingSpot> parkingSpotList) {
         PriorityQueue<ParkingSpot> pq = new PriorityQueue<>(Comparator.comparingInt(ParkingSpot::getDistance));

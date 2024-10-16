@@ -1,8 +1,9 @@
-package parkinglot;
+package parkinglot.parkingmanager;
+
+import parkinglot.model.ParkingSpot;
+import parkinglot.model.Ticket;
 
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 public abstract class ParkingSpotManager {
 	List<ParkingSpot> parkingSpots;
@@ -15,13 +16,13 @@ public abstract class ParkingSpotManager {
 
 	abstract ParkingSpot findParkingSpot();
 
-	Ticket parkVehicle() {
+	public Ticket parkVehicle() {
 		ParkingSpot spot = findParkingSpot();
 		spot.parkVehicle();
 		return new Ticket(spot);
 	}
 
-	void removeVehicle(Ticket ticket) {
+	public void removeVehicle(Ticket ticket) {
 		ticket.getParkingSpot().removeVehicle();
 	}
 }

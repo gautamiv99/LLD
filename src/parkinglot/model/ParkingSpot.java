@@ -1,4 +1,6 @@
-package parkinglot;
+package parkinglot.model;
+
+import parkinglot.VehicleType;
 
 public class ParkingSpot {
 	private long id;
@@ -48,11 +50,11 @@ public class ParkingSpot {
 		this.distance = distance;
 	}
 
-	void parkVehicle() {
+	public void parkVehicle() {
 		this.isEmpty = false;
 	}
 	
-	void removeVehicle() {
+	public void removeVehicle() {
 		this.isEmpty = true;
 	}
 }

@@ -1,8 +1,8 @@
-package parkinglot;
+package parkinglot.parkingstrategy;
 
-import java.util.Comparator;
+import parkinglot.model.ParkingSpot;
+
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class DefaultStrategy implements ParkingStrategy {
     @Override

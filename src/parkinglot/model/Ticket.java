@@ -1,4 +1,6 @@
-package parkinglot;
+package parkinglot.model;
+
+import parkinglot.Constants;
 
 public class Ticket {
 	private int ticketId;
